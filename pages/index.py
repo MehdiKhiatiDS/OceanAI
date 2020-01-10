@@ -1,3 +1,5 @@
+index.py
+
 # Imports from 3rd party libraries
 import dash
 import dash_bootstrap_components as dbc
@@ -8,6 +10,9 @@ import plotly.express as px
 
 # Imports from this application
 from app import app
+from joblib import load
+pipeline = load('assets/pipeline.joblib')
+
 
 # 2 column layout. 1st column width = 4/12
 # https://dash-bootstrap-components.opensource.faculty.ai/l/components/layout
@@ -16,17 +21,17 @@ column1 = dbc.Col(
         dcc.Markdown(
             """
         
-            ## Your Value Proposition
+            ## Experience the Vortex
 
-            Emphasize how the app will benefit users. Don't emphasize the underlying technology.
+            Have you been fishing and caught nothing? Or surfed in the wrong wetsuit🥶!
 
-            ✅ RUN is a running app that adapts to your fitness levels and designs personalized workouts to help you improve your running.
+            🏄‍♂️ 🎣 Ocean AI is a water temperature predicting app that adapts to all wind and swell variables and predicts if you're going Fishing or Surfing or Neither.
 
-            ❌ RUN is the only intelligent running app that uses sophisticated deep neural net machine learning to make your run smarter because we believe in ML driven workouts.
+            
 
             """
         ),
-        dcc.Link(dbc.Button('Your Call To Action', color='primary'), href='/predictions')
+        dcc.Link(dbc.Button('TRY AI', color='primary'), href='/predictions')
     ],
     md=4,
 )
@@ -42,3 +47,5 @@ column2 = dbc.Col(
 )
 
 layout = dbc.Row([column1, column2])
+
+
